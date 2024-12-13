@@ -1,4 +1,4 @@
-def calcular_mediana(lista):
+def mediana(lista):
     """
     Calcula la mediana de una lista de números
 
@@ -23,7 +23,7 @@ def calcular_mediana(lista):
 
     return mediana
 
-def calcular_moda(lista):
+def moda(lista):
     """
     Calcula la moda de una lista de números sin usar librerías.
 
@@ -50,7 +50,7 @@ def calcular_moda(lista):
 
     return moda
 
-def calcular_promedio(lista):
+def promedio(lista):
     """
     Calcula el promedio de una lista de números sin usar librerías.
 
@@ -67,7 +67,7 @@ def calcular_promedio(lista):
         suma += numero
     return suma / len(lista)
 
-def calcular_rango(lista):
+def rango(lista):
     """
     Calcula el rango de una lista de números sin utilizar librerías.
 
@@ -92,7 +92,7 @@ def calcular_rango(lista):
 
     return maximo - minimo
 
-def calcular_varianza(lista):
+def varianza(lista):
     """
     Calcula la varianza de una lista de números sin utilizar librerías.
 
@@ -106,7 +106,7 @@ def calcular_varianza(lista):
     if n < 2:
         return 0  # Varianza indefinida para menos de dos elementos
 
-    promedio = calcular_promedio(lista)
+    promedio = promedio(lista)
     suma_cuadrados_diferencias = 0
     for numero in lista:
         suma_cuadrados_diferencias += (numero - promedio) ** 2
@@ -114,7 +114,7 @@ def calcular_varianza(lista):
     varianza = suma_cuadrados_diferencias / n
     return varianza
 
-def calcular_desviacion_estandar(lista):
+def desviacion_estandar(lista):
     """
     Calcula la desviación estándar de una lista de números sin utilizar librerías.
 
@@ -125,11 +125,11 @@ def calcular_desviacion_estandar(lista):
       La desviación estándar de la lista. Regresa 0 si la lista tiene menos de dos elementos.
 
     """
-    varianza = calcular_varianza(lista)
+    varianza = varianza(lista)
     desviacion_estandar = varianza ** (1/2)
     return desviacion_estandar
 
-def calcular_mediana(lista):
+def mediana(lista):
     """
     Calcula la mediana de una lista de números
 
@@ -154,7 +154,7 @@ def calcular_mediana(lista):
 
     return mediana
 
-def calcular_rango_intercuartil(lista):
+def rango_intercuartil(lista):
     """
     Calcula el rango intercuartil de una lista de números sin usar librerías.
 
@@ -196,17 +196,17 @@ def desviacion_mediana_absoluta(lista):
     if not lista:
         return 0  # Manejar el caso de una lista vacía
 
-    mediana = calcular_mediana(lista)
+    mediana = mediana(lista)
 
     # Calcular las desviaciones absolutas respecto a la mediana
     desviaciones_absolutas = [abs(x - mediana) for x in lista]
 
     # Calcular la mediana de las desviaciones absolutas
-    desviacion_mediana_absoluta = calcular_mediana(desviaciones_absolutas)
+    desviacion_mediana_absoluta = mediana(desviaciones_absolutas)
 
     return desviacion_mediana_absoluta
 
-def calcular_covarianza(lista1, lista2):
+def covarianza(lista1, lista2):
     """
     Calcula la covarianza de dos listas de números sin utilizar librerías.
 
@@ -221,8 +221,8 @@ def calcular_covarianza(lista1, lista2):
     if n != len(lista2) or n < 2:
         return 0
 
-    promedio1 = calcular_promedio(lista1)
-    promedio2 = calcular_promedio(lista2)
+    promedio1 = promedio(lista1)
+    promedio2 = promedio(lista2)
 
     suma_productos_diferencias = 0
     for i in range(n):
@@ -233,7 +233,7 @@ def calcular_covarianza(lista1, lista2):
 
 import math
 
-def calcular_coeficiente_correlacion(lista1, lista2):
+def coeficiente_correlacion(lista1, lista2):
     """
     Calcula el coeficiente de correlación de Pearson de dos listas de números sin utilizar librerías.
 
@@ -249,9 +249,9 @@ def calcular_coeficiente_correlacion(lista1, lista2):
     if n != len(lista2) or n < 2:
         return 0
 
-    covarianza = calcular_covarianza(lista1, lista2)
-    desviacion_estandar1 = math.sqrt(calcular_varianza(lista1))
-    desviacion_estandar2 = math.sqrt(calcular_varianza(lista2))
+    covarianza = covarianza(lista1, lista2)
+    desviacion_estandar1 = math.sqrt(varianza(lista1))
+    desviacion_estandar2 = math.sqrt(varianza(lista2))
 
     if desviacion_estandar1 == 0 or desviacion_estandar2 == 0:
         return 0  # Evitar división por cero
@@ -259,7 +259,7 @@ def calcular_coeficiente_correlacion(lista1, lista2):
     coeficiente_correlacion = covarianza / (desviacion_estandar1 * desviacion_estandar2)
     return coeficiente_correlacion
 
-def calcular_coeficiente_determinacion(lista1, lista2):
+def coeficiente_determinacion(lista1, lista2):
     """
     Calcula el coeficiente de determinación (r^2) de dos listas de números sin utilizar librerías.
 
@@ -270,7 +270,7 @@ def calcular_coeficiente_determinacion(lista1, lista2):
     Output:
       El coeficiente de determinación (r^2). Regresa 0 si las listas tienen longitudes diferentes o menos de dos elementos.
     """
-    r = calcular_coeficiente_correlacion(lista1, lista2)
+    r = coeficiente_correlacion(lista1, lista2)
     r2 = r**2
     return r2
     
