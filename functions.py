@@ -165,7 +165,7 @@ def mediana(lista):
 
     return mediana
 
-percentil(ordenada, percentil):
+def percentil(ordenada, percentil):
     pos = percentil * (len(ordenada) - 1)
     piso = int(pos)
     techo = piso + 1
