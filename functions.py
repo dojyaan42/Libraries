@@ -140,6 +140,47 @@ def mediana(lista):
 
     return mediana
 
+def calcular_cuartiles(lista):
+    """
+    Input:
+      lista: Una lista de números.
+
+    Output:
+      Una lista con los cuartiles [Q0, Q1, Q2, Q3, Q4].
+      Q0: Mínimo
+      Q1: Primer cuartil (25%)
+      Q2: Mediana (50%)
+      Q3: Tercer cuartil (75%)
+      Q4: Máximo
+    """
+    n = len(lista)
+    if n == 0:
+        return [None, None, None, None, None]  # Lista vacía
+
+    lista_ordenada = sorted(lista)
+
+    # Calcular los índices de los cuartiles
+    q0 = lista_ordenada[0]  # Mínimo
+    q4 = lista_ordenada[-1]  # Máximo
+
+    # Función para calcular un percentil
+    def calcular_percentil(ordenada, percentil):
+        pos = percentil * (len(ordenada) - 1)
+        piso = int(pos)
+        techo = piso + 1
+        peso = pos - piso
+
+        if techo < len(ordenada):
+            return ordenada[piso] * (1 - peso) + ordenada[techo] * peso
+        else:
+            return ordenada[piso]
+
+    q1 = calcular_percentil(lista_ordenada, 0.25)  # Primer cuartil
+    q2 = calcular_percentil(lista_ordenada, 0.50)  # Mediana
+    q3 = calcular_percentil(lista_ordenada, 0.75)  # Tercer cuartil
+
+    return [q0, q1, q2, q3, q4]
+
 def rango_intercuartil(lista):
     """
     Input:
