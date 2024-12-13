@@ -98,7 +98,7 @@ def varianza(lista):
     if n < 2:
         return 0  # Varianza indefinida para menos de dos elementos
 
-    promedio = calcular_promedio(lista)
+    promedio = promedio(lista)
     suma_cuadrados_diferencias = 0
     for numero in lista:
         suma_cuadrados_diferencias += (numero - promedio) ** 2
@@ -119,7 +119,7 @@ def desviacion_estandar(lista):
     if n < 2:
         return 0  # Varianza indefinida para menos de dos elementos
 
-    promedio = calcular_promedio(lista)
+    promedio = promedio(lista)
     suma_cuadrados_diferencias = 0
     for numero in lista:
         suma_cuadrados_diferencias += (numero - promedio) ** 2
@@ -152,7 +152,7 @@ def mediana(lista):
 
     return mediana
 
-def calcular_cuartiles(lista):
+def cuartiles(lista):
     """
     Input:
       lista: Una lista de números.
@@ -176,7 +176,7 @@ def calcular_cuartiles(lista):
     q4 = lista_ordenada[-1]  # Máximo
 
     # Función para calcular un percentil
-    def calcular_percentil(ordenada, percentil):
+    def percentil(ordenada, percentil):
         pos = percentil * (len(ordenada) - 1)
         piso = int(pos)
         techo = piso + 1
@@ -187,9 +187,9 @@ def calcular_cuartiles(lista):
         else:
             return ordenada[piso]
 
-    q1 = calcular_percentil(lista_ordenada, 0.25)  # Primer cuartil
-    q2 = calcular_percentil(lista_ordenada, 0.50)  # Mediana
-    q3 = calcular_percentil(lista_ordenada, 0.75)  # Tercer cuartil
+    q1 = percentil(lista_ordenada, 0.25)  # Primer cuartil
+    q2 = percentil(lista_ordenada, 0.50)  # Mediana
+    q3 = percentil(lista_ordenada, 0.75)  # Tercer cuartil
 
     return [q0, q1, q2, q3, q4]
 
