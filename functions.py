@@ -85,22 +85,26 @@ def rango(lista):
     return maximo - minimo
 
 def varianza(lista):
-    """Calcula la varianza de una lista de números.
-    Args:
-        lista: Una lista de números.
-    Returns:
-        La varianza de la lista.
+    """
+    Calcula la varianza de una lista de números sin utilizar librerías.
+
+    Input:
+      lista: Una lista de números.
+
+    Output:
+      La varianza de la lista. Regresa 0 si la lista tiene menos de dos elementos.
     """
     n = len(lista)
     if n < 2:
         return 0  # Varianza indefinida para menos de dos elementos
 
-    promedio_valor = fn.promedio(lista)  
+    promedio = calcular_promedio(lista)
     suma_cuadrados_diferencias = 0
     for numero in lista:
-        suma_cuadrados_diferencias += (numero - promedio_valor)**2
-    
-    return suma_cuadrados_diferencias / (n - 1)
+        suma_cuadrados_diferencias += (numero - promedio) ** 2
+
+    variance = suma_cuadrados_diferencias / n
+    return variance
 
 def desviacion_estandar(lista):
     """
@@ -111,9 +115,19 @@ def desviacion_estandar(lista):
       La desviación estándar de la lista. Regresa 0 si la lista tiene menos de dos elementos.
 
     """
-    varianza = varianza(lista)
+    n = len(lista)
+    if n < 2:
+        return 0  # Varianza indefinida para menos de dos elementos
+
+    promedio = calcular_promedio(lista)
+    suma_cuadrados_diferencias = 0
+    for numero in lista:
+        suma_cuadrados_diferencias += (numero - promedio) ** 2
+
+    varianza = suma_cuadrados_diferencias / n
     desviacion_estandar = varianza ** (1/2)
     return desviacion_estandar
+
 
 def mediana(lista):
     """
@@ -193,15 +207,12 @@ def rango_intercuartil(lista):
 
     lista_ordenada = sorted(lista)
 
-    # Calcular la posición de los cuartiles
     q1_index = (n + 1) // 4
     q3_index = 3 * (n + 1) // 4
 
-    # Calcular los cuartiles Q1 y Q3
     q1 = lista_ordenada[q1_index -1] if q1_index <= len(lista_ordenada) else lista_ordenada[-1]
     q3 = lista_ordenada[q3_index-1] if q3_index <= len(lista_ordenada) else lista_ordenada[-1]
 
-    # Calcular el rango intercuartil (IQR)
     rango_intercuartil = q3 - q1
 
     return rango_intercuartil
@@ -214,18 +225,24 @@ def desviacion_mediana_absoluta(lista):
     Output:
       La desviación mediana absoluta de la lista.
     """
-    if not lista:
-        return 0  # Manejar el caso de una lista vacía
+    n = len(lista)
+    if n == 0:
+        return None
 
-    mediana = mediana(lista)
+    lista_ordenada = sorted(lista)
 
-    # Calcular las desviaciones absolutas respecto a la mediana
-    desviaciones_absolutas = [abs(x - mediana) for x in lista]
+    if n % 2 == 0:
+        medio1 = lista_ordenada[n // 2 - 1]
+        medio2 = lista_ordenada[n // 2]
+        median_val = (medio1 + medio2) / 2
+    else:
+        median_val = lista_ordenada[n // 2]
 
-    # Calcular la mediana de las desviaciones absolutas
-    desviacion_mediana_absoluta = mediana(desviaciones_absolutas)
+    desviaciones_absolutas = [abs(x - median_val) for x in lista]
 
-    return desviacion_mediana_absoluta
+    desviacion_median_absoluta = mediana(desviaciones_absolutas)
+
+    return desviacion_median_absoluta
 
 def covarianza(lista1, lista2):
     """
@@ -271,7 +288,7 @@ def coeficiente_correlacion(lista1, lista2):
     desviacion_estandar2 = math.sqrt(varianza(lista2))
 
     if desviacion_estandar1 == 0 or desviacion_estandar2 == 0:
-        return 0  # Evitar división por cero
+        return 0
 
     coeficiente_correlacion = covarianza / (desviacion_estandar1 * desviacion_estandar2)
     return coeficiente_correlacion
