@@ -59,7 +59,9 @@ def promedio(lista):
     suma = 0
     for numero in lista:
         suma += numero
-    return suma / len(lista)
+
+    mean = suma / len(lista)
+    return mean
 
 def rango(lista):
     """
@@ -97,8 +99,11 @@ def varianza(lista):
     n = len(lista)
     if n < 2:
         return 0  # Varianza indefinida para menos de dos elementos
-
-    promedio = promedio(lista)
+    suma = 0
+    for numero in lista:
+        suma += numero
+    mean = suma / len(lista)
+    promedio = mean
     suma_cuadrados_diferencias = 0
     for numero in lista:
         suma_cuadrados_diferencias += (numero - promedio) ** 2
@@ -119,7 +124,15 @@ def desviacion_estandar(lista):
     if n < 2:
         return 0  # Varianza indefinida para menos de dos elementos
 
-    promedio = promedio(lista)
+    if not lista:
+        return 0  # Regresar 0 si la lista está vacía
+    suma = 0
+    for numero in lista:
+        suma += numero
+
+    mean = suma / len(lista)
+    
+    promedio = mean
     suma_cuadrados_diferencias = 0
     for numero in lista:
         suma_cuadrados_diferencias += (numero - promedio) ** 2
