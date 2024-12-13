@@ -1,7 +1,5 @@
 def mediana(lista):
     """
-    Calcula la mediana de una lista de números
-
     Input:
       lista: Una lista de números.
 
@@ -25,8 +23,6 @@ def mediana(lista):
 
 def moda(lista):
     """
-    Calcula la moda de una lista de números sin usar librerías.
-
     Input:
       lista: Una lista de números.
 
@@ -52,8 +48,6 @@ def moda(lista):
 
 def promedio(lista):
     """
-    Calcula el promedio de una lista de números sin usar librerías.
-
     Input:
       lista: Una lista de números.
 
@@ -69,8 +63,6 @@ def promedio(lista):
 
 def rango(lista):
     """
-    Calcula el rango de una lista de números sin utilizar librerías.
-
     Input:
       lista: Una lista de números.
 
@@ -94,8 +86,6 @@ def rango(lista):
 
 def varianza(lista):
     """
-    Calcula la varianza de una lista de números sin utilizar librerías.
-
     Input:
       lista: Una lista de números.
 
@@ -116,8 +106,6 @@ def varianza(lista):
 
 def desviacion_estandar(lista):
     """
-    Calcula la desviación estándar de una lista de números sin utilizar librerías.
-
     Input:
       lista: Una lista de números.
 
@@ -131,8 +119,6 @@ def desviacion_estandar(lista):
 
 def mediana(lista):
     """
-    Calcula la mediana de una lista de números
-
     Input:
       lista: Una lista de números.
 
@@ -156,8 +142,6 @@ def mediana(lista):
 
 def rango_intercuartil(lista):
     """
-    Calcula el rango intercuartil de una lista de números sin usar librerías.
-
     Input:
       lista: Una lista de números.
 
@@ -185,8 +169,6 @@ def rango_intercuartil(lista):
 
 def desviacion_mediana_absoluta(lista):
     """
-    Calcula la desviación mediana absoluta de una lista de números sin usar librerías.
-
     Input:
       lista: Una lista de números.
 
@@ -208,8 +190,6 @@ def desviacion_mediana_absoluta(lista):
 
 def covarianza(lista1, lista2):
     """
-    Calcula la covarianza de dos listas de números sin utilizar librerías.
-
     Input:
       lista1: La primera lista de números.
       lista2: La segunda lista de números.
@@ -235,8 +215,6 @@ import math
 
 def coeficiente_correlacion(lista1, lista2):
     """
-    Calcula el coeficiente de correlación de Pearson de dos listas de números sin utilizar librerías.
-
     Input:
       lista1: La primera lista de números.
       lista2: La segunda lista de números.
@@ -261,8 +239,6 @@ def coeficiente_correlacion(lista1, lista2):
 
 def coeficiente_determinacion(lista1, lista2):
     """
-    Calcula el coeficiente de determinación (r^2) de dos listas de números sin utilizar librerías.
-
     Input:
       lista1: La primera lista de números (variable independiente).
       lista2: La segunda lista de números (variable dependiente).
