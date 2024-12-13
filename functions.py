@@ -86,10 +86,8 @@ def rango(lista):
 
 def varianza(lista):
     """Calcula la varianza de una lista de números.
-
     Args:
         lista: Una lista de números.
-
     Returns:
         La varianza de la lista.
     """
@@ -97,12 +95,11 @@ def varianza(lista):
     if n < 2:
         return 0  # Varianza indefinida para menos de dos elementos
 
-    # Cambio: Llamada a la función 'promedio' con 'lista' como argumento.
-    promedio_valor = promedio(lista)  
+    promedio_valor = fn.promedio(lista)  
     suma_cuadrados_diferencias = 0
     for numero in lista:
-        suma_cuadrados_diferencias += (numero - promedio_valor) ** 2
-
+        suma_cuadrados_diferencias += (numero - promedio_valor)**2
+    
     return suma_cuadrados_diferencias / (n - 1)
 
 def desviacion_estandar(lista):
