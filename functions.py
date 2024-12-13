@@ -165,6 +165,17 @@ def mediana(lista):
 
     return mediana
 
+percentil(ordenada, percentil):
+    pos = percentil * (len(ordenada) - 1)
+    piso = int(pos)
+    techo = piso + 1
+    peso = pos - piso
+
+    if techo < len(ordenada):
+        return ordenada[piso] * (1 - peso) + ordenada[techo] * peso
+    else:
+        return ordenada[piso]
+
 def cuartiles(lista):
     """
     Input:
