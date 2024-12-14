@@ -8,15 +8,15 @@ def mediana(lista):
     """
     n = len(lista)
     if n == 0:
-        return None  # Manejar el caso de una lista vacía
+        return None
 
-    lista_ordenada = sorted(lista)  # Ordenar la lista
+    lista_ordenada = sorted(lista)
 
-    if n % 2 == 0:  # Si la longitud es par
+    if n % 2 == 0:
         medio1 = lista_ordenada[n // 2 - 1]
         medio2 = lista_ordenada[n // 2]
         mediana = (medio1 + medio2) / 2
-    else:  # Si la longitud es impar
+    else:
         mediana = lista_ordenada[n // 2]
 
     return mediana
@@ -55,7 +55,7 @@ def promedio(lista):
       El promedio de la lista. Regresa 0 si la lista está vacía para evitar errores de división entre cero.
     """
     if not lista:
-        return 0  # Regresar 0 si la lista está vacía
+        return 0
     suma = 0
     for numero in lista:
         suma += numero
@@ -98,7 +98,7 @@ def varianza(lista):
     """
     n = len(lista)
     if n < 2:
-        return 0  # Varianza indefinida para menos de dos elementos
+        return 0
     suma = 0
     for numero in lista:
         suma += numero
@@ -122,10 +122,10 @@ def desviacion_estandar(lista):
     """
     n = len(lista)
     if n < 2:
-        return 0  # Varianza indefinida para menos de dos elementos
+        return 0
 
     if not lista:
-        return 0  # Regresar 0 si la lista está vacía
+        return 0
     suma = 0
     for numero in lista:
         suma += numero
@@ -152,15 +152,15 @@ def mediana(lista):
     """
     n = len(lista)
     if n == 0:
-        return None  # Manejar el caso de una lista vacía
+        return None
 
-    lista_ordenada = sorted(lista)  # Ordenar la lista
+    lista_ordenada = sorted(lista)
 
-    if n % 2 == 0:  # Si la longitud es par
+    if n % 2 == 0:
         medio1 = lista_ordenada[n // 2 - 1]
         medio2 = lista_ordenada[n // 2]
         mediana = (medio1 + medio2) / 2
-    else:  # Si la longitud es impar
+    else:
         mediana = lista_ordenada[n // 2]
 
     return mediana
@@ -180,15 +180,13 @@ def cuartiles(lista):
     """
     n = len(lista)
     if n == 0:
-        return [None, None, None, None, None]  # Lista vacía
+        return [None, None, None, None, None]
 
     lista_ordenada = sorted(lista)
 
-    # Calcular los índices de los cuartiles
-    q0 = lista_ordenada[0]  # Mínimo
-    q4 = lista_ordenada[-1]  # Máximo
+    q0 = lista_ordenada[0]
+    q4 = lista_ordenada[-1]
 
-    # Función para calcular un percentil
     def percentil(ordenada, percentil):
         pos = percentil * (len(ordenada) - 1)
         piso = int(pos)
@@ -200,9 +198,9 @@ def cuartiles(lista):
         else:
             return ordenada[piso]
 
-    q1 = percentil(lista_ordenada, 0.25)  # Primer cuartil
-    q2 = percentil(lista_ordenada, 0.50)  # Mediana
-    q3 = percentil(lista_ordenada, 0.75)  # Tercer cuartil
+    q1 = percentil(lista_ordenada, 0.25)
+    q2 = percentil(lista_ordenada, 0.50)
+    q3 = percentil(lista_ordenada, 0.75)
 
     return [q0, q1, q2, q3, q4]
 
